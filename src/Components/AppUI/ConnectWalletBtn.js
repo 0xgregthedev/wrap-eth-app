@@ -4,28 +4,28 @@ import ConnectWallet from '../../AccountLibrary/ConnectWallet';
 import './ConnectWalletBtn.css';
 const ConnectWalletBtn = (props) => {
     useEffect(() => {
+        const accountsChangedHandler = (data) => {
+            props.onAddressChange(data[0]);
+        }
+        const connectHandler = async (data) => {
+            let result = await ConnectWallet(data.chainId);
+            props.onAddressChange(result.address ?? '');
+            if (!!result.error) props.onError(result.error);
+        }
+        const chainChangedHandler = async () => {
+            let result = await ConnectWallet(window.ethereum.chainId);
+            props.onAddressChange(result.address ?? '');
+            if (!!result.error) props.onError(result.error);
+        }
+
         if (window.ethereum) {
             window.ethereum.on('accountsChanged', accountsChangedHandler);
             window.ethereum.on('chainChanged', chainChangedHandler);
             window.ethereum.on('connect', connectHandler);
         }
         else  props.onAddressChange('');
-    }, [props.data.address])
+    }, [props])
 
-    const connectHandler = async (data) => {
-        let result = await ConnectWallet(data.chainId);
-        props.onAddressChange(result.address ?? '');
-        if (!!result.error) props.onError(result.error);
-    }
-
-    const accountsChangedHandler = (data) => {
-        props.onAddressChange(data[0]);
-    }
-    const chainChangedHandler = async () => {
-        let result = await ConnectWallet(window.ethereum.chainId);
-        props.onAddressChange(result.address ?? '');
-        if (!!result.error) props.onError(result.error);
-    }
     const connectWallet = async () => {
         let result = await ConnectWallet(window.ethereum?.chainId, 'eth_requestAccounts');
         props.onAddressChange(result.address ?? '');

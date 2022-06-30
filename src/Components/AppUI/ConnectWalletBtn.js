@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import ConnectWallet from '../../AccountLibrary/ConnectWallet';
-import './ConnectWallet.css';
+import './ConnectWalletBtn.css';
 const ConnectWalletBtn = (props) => {
     useEffect(() => {
         if (window.ethereum) {
@@ -33,11 +33,11 @@ const ConnectWalletBtn = (props) => {
     };
 
     if (props.data?.address?.length > 0) 
-        return (<div><button className='wallet-btn' >{props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5)}</button></div>);
+        return (<button className='wallet-btn' >{props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5)}</button>);
     else if (props.data?.address === null) 
-        return (<div><button className='wallet-btn'>Loading...</button></div>);    
+        return (<button className='wallet-btn'>Loading...</button>);    
     else 
-        return (<div><button className='wallet-btn' onClick={connectWallet}>Connect Wallet</button></div>);
+        return (<button className='wallet-btn' onClick={connectWallet}>Connect Wallet</button>);
     
 
 }

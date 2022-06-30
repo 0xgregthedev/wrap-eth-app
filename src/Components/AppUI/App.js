@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import ConnectWalletBtn from './ConnectWalletBtn';
 import WrapUI from '../WrapUI/WrapUI';
 import Background from './Background';
 import Modal from './Modal';
 import GetBalances from '../../AccountLibrary/GetBalances';
-import { useState } from 'react';
+import NetworkIndicator from './NetworkIndicator';
 
 function App() {
   const [accountState, setAccountState] = useState({ ethBalance: 0.0, wethBalance: 0.0, address: null });
@@ -54,7 +55,10 @@ function App() {
 
   return (
     <Background>
-      <ConnectWalletBtn data={accountState} onAddressChange={addressChangeHandler} onError={errorHandler}></ConnectWalletBtn>
+      <div>
+        <ConnectWalletBtn data={accountState} onAddressChange={addressChangeHandler} onError={errorHandler}></ConnectWalletBtn>
+        <NetworkIndicator></NetworkIndicator>
+      </div>
       <WrapUI accountData={{ ...accountState }} onTransaction={transactionHandler}></WrapUI>
       <Modal msg={modalState.msg} link={modalState.link} status={modalState.status}></Modal>
     </Background>

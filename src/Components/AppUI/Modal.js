@@ -14,7 +14,6 @@ const Modal = (props) => {
                 <p>{props.msg}</p>
             </div>
         )
-
     }
     else return null;
 

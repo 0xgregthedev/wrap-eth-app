@@ -1,16 +1,21 @@
 
-import React, { useEffect } from 'react';
-import ConnectWallet from '../../AccountLibrary/ConnectWallet';
+import React, { useState, useEffect } from 'react';
 import './ConnectWalletBtn.css';
+import ConnectWallet from '../../AccountLibrary/ConnectWallet';
+import EnsLookup from '../../AccountLibrary/ContractABIs/EnsLookup';
 const ConnectWalletBtn = (props) => {
+    const [ens, setEns] = useState('');
+
     useEffect(() => {
-        const accountsChangedHandler = (data) => {
+        const accountsChangedHandler = async (data) => {
             props.onAddressChange(data[0]);
+            setEns(await EnsLookup(data[0]));
         }
         const connectHandler = async (data) => {
             let result = await ConnectWallet(data.chainId);
             props.onAddressChange(result.address ?? '');
             if (!!result.error) props.onError(result.error);
+            setEns(await EnsLookup(result.address));
         }
         const chainChangedHandler = async () => {
             let result = await ConnectWallet(window.ethereum.chainId);
@@ -24,16 +29,19 @@ const ConnectWalletBtn = (props) => {
             window.ethereum.on('connect', connectHandler);
         }
         else  props.onAddressChange('');
-    }, [props])
+    }, [props, ens])
+
+
 
     const connectWallet = async () => {
         let result = await ConnectWallet(window.ethereum?.chainId, 'eth_requestAccounts');
         props.onAddressChange(result.address ?? '');
+        setEns(await EnsLookup(result.address));
         if (!!result.error) props.onError(result.error);
     };
 
     if (props.data?.address?.length > 0) 
-        return (<button className='wallet-btn' >{props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5)}</button>);
+        return (<button className='wallet-btn' >{ens?.length > 0 ? ens : (props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5))}</button>);
     else if (props.data?.address === null) 
         return (<button className='wallet-btn'>Loading...</button>);    
     else 

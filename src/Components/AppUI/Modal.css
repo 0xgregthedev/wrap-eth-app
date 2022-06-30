@@ -37,7 +37,7 @@
     transform: translate(0px, 12px);
     float: right;
     margin-right: 25px;
-    background-image: url("../../Images/loading.gif");
+    background-image: url('../../Images/loading.gif');
     background-size: cover;
     background-position: center;
     background-repeat: none;
@@ -48,7 +48,7 @@
     transform: translate(0px, 12px);
     float: right;
     margin-right: 25px;
-    background-image: url("../../Images/success.png");
+    background-image: url('../../Images/success.png');
     background-size: cover;
     background-position: center;
     background-repeat: none;
@@ -59,7 +59,7 @@
     transform: translate(0px, 12px);
     float: right;
     margin-right: 25px;
-    background-image: url("../../Images/fail.png");
+    background-image: url('../../Images/fail.png');
     background-size: cover;
     background-position: center;
     background-repeat: none;

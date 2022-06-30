@@ -21,21 +21,12 @@ function App() {
 
   const addressChangeHandler = async (newAddress) => {
     if(newAddress.length > 0) {
-      setAccountState({
-        ethBalance: 0.0,
-        wethBalance: 0.0,
-        address: null
-      });
+      setAccountState({ethBalance: 0.0, wethBalance: 0.0, address: null  });
       setAccountState(await GetBalances(newAddress));
     }
     else {
-      setAccountState({
-        ethBalance: 0.0,
-        wethBalance: 0.0,
-        address: ''
-      });
+      setAccountState({ ethBalance: 0.0, wethBalance: 0.0, address: '' });
     }
-
   }
   const transactionHandler = async (transactionData) => {
     let tx = await transactionData;
@@ -49,17 +40,10 @@ function App() {
     })
     let txRes = await tx.wait(2)
     if (txRes.status === 1) setModalState((prevModalState) => {
-      return {
-        ...prevModalState,
-        msg: 'Transaction successful',
-        status: 'success',
-      }
+      return {  ...prevModalState,  msg: 'Transaction successful', status: 'success' }
     })
     else setModalState((prevModalState) => {
-      return {
-        ...prevModalState,
-        msg: 'Transaction failed',
-        status: 'fail',
+      return {  ...prevModalState,msg: 'Transaction failed', status: 'fail',
       }
     })
     setAccountState(await GetBalances(accountState.address));

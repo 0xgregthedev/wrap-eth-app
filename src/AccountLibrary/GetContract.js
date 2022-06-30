@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers } from 'ethers';
 import WethAbiMainnet from './ContractABIs/WethAbi.json';
 import WethAbiRinkeby from './ContractABIs/WethAbiRinkeby.json';
 const GetContract = async (provider) => {
@@ -13,7 +13,7 @@ const GetContract = async (provider) => {
         case null:
             break;
         default:
-            console.log("Network not supported");
+            console.log('Network not supported');
             break;
     }
     return contract;

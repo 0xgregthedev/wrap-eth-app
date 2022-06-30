@@ -39,11 +39,13 @@ function App() {
   }
   const transactionHandler = async (transactionData) => {
     let tx = await transactionData;
+    console.log(transactionData)
+    let linkBase = window.ethereum.chainId === '0x1' ? 'https://www.etherscan.io/tx/' : window.ethereum.chainId === '0x4' ? 'https://rinkeby.etherscan.io/tx/' : '';
     setModalState(() => {
       return {
         msg: 'Processing transaction...',
         status: 'pending',
-        link: 'https://rinkeby.etherscan.io/tx/' + tx.hash
+        link: linkBase + tx.hash
       }
     })
     let txRes = await tx.wait(2)
@@ -91,7 +93,6 @@ function App() {
       })
     }, 5000)
   }
-
 
   return (
     <Background>

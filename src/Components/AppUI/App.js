@@ -39,7 +39,6 @@ function App() {
   }
   const transactionHandler = async (transactionData) => {
     let tx = await transactionData;
-    console.log(transactionData)
     let linkBase = window.ethereum.chainId === '0x1' ? 'https://www.etherscan.io/tx/' : window.ethereum.chainId === '0x4' ? 'https://rinkeby.etherscan.io/tx/' : '';
     setModalState(() => {
       return {

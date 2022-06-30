@@ -10,7 +10,7 @@ const ConnectWalletBtn = (props) => {
             window.ethereum.on('connect', connectHandler);
         }
         else  props.onAddressChange('');
-    }, [])
+    }, [props.data.address])
 
     const connectHandler = async (data) => {
         let result = await ConnectWallet(data.chainId);
@@ -32,13 +32,10 @@ const ConnectWalletBtn = (props) => {
         if (!!result.error) props.onError(result.error);
     };
 
-
-    if (props.data?.address?.length > 0) {
-        return (<div><button className='wallet-btn' >{props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5)}</button></div>)
-    }
+    if (props.data?.address?.length > 0) 
+        return (<div><button className='wallet-btn' >{props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5)}</button></div>);
     else if (props.data?.address === null) 
-        return (<div><button className='wallet-btn'>Loading...</button></div>);
-    
+        return (<div><button className='wallet-btn'>Loading...</button></div>);    
     else 
         return (<div><button className='wallet-btn' onClick={connectWallet}>Connect Wallet</button></div>);
     

@@ -10,13 +10,13 @@ const ConnectWallet = async (chainId, method = 'eth_accounts') => {
                 else return '';
 
             } catch (err) {
-                return {address: '', error: 'Could not find account'};;
+                return {address: '', error: 'Could not find account'};
             }
 
         } else  return {address: '', error: 'Network not supported. Please switch to mainnet or rinkeby.'};
 
     }
-    else console.log('ethereum not connected')
+    else return {address: '', error: 'MetaMask not detected.'}
 
 };
 

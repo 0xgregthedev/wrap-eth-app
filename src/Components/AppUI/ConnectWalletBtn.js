@@ -9,7 +9,8 @@ const ConnectWalletBtn = (props) => {
             window.ethereum.on('chainChanged', chainChangedHandler);
             window.ethereum.on('connect', connectHandler);
         }
-    })
+        else  props.onAddressChange('');
+    }, [])
 
     const connectHandler = async (data) => {
         let result = await ConnectWallet(data.chainId);
@@ -26,7 +27,7 @@ const ConnectWalletBtn = (props) => {
         if (!!result.error) props.onError(result.error);
     }
     const connectWallet = async () => {
-        let result = await ConnectWallet(window.ethereum.chainId, 'eth_requestAccounts');
+        let result = await ConnectWallet(window.ethereum?.chainId, 'eth_requestAccounts');
         props.onAddressChange(result.address ?? '');
         if (!!result.error) props.onError(result.error);
     };

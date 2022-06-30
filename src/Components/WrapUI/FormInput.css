@@ -1,0 +1,98 @@
+.form-inputs {
+    background-color: #31333a;
+    border: #31333a 1px solid;
+    border-radius: 25px;
+    margin: 5px 0px;
+    padding: 10px;
+}
+.form-inputs:hover {
+    border: #666b7a 1px solid;
+}
+
+input {
+    color: #6e7684;
+    font-size: 2em;
+    background-color: #31333a;
+    border: none;
+    appearance: none;
+    width: calc(85% - 95px );
+    margin: 0px 5px;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+input:focus { outline: none; appearance: textfield;}
+
+.changed-input {
+    color: #bec0c3 !important;
+}
+
+.coin {
+    background-color: #35373f;
+    border: #35373f 1px solid;
+    margin: 0;
+    width: calc(10% + 75px);
+    color: #bec3cd;
+    font-weight: bold;
+    font-size: 1.75em;
+    padding: 8px 8px 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    user-select: none;
+}
+
+.coin:hover {
+    background-color: #434650;
+    border: #666b7a 1px solid;
+}
+.coin > p {
+    margin: 0;
+    float: right;
+}
+
+.balance {
+    display:inline-block;
+    display: flex;
+    justify-content: end;
+    margin-top:4px;
+    width: calc(100% - 5px);
+}
+.balance > p {
+    margin: 0;
+    margin-right: 2px;
+    display: inline-block;
+    text-align: right;
+    color: #bec3cd;
+}
+.balance > button {
+    text-align: right;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0px 2px;
+    border:none;
+    color: #0162ff;
+    background-color: rgba(10, 85, 224, 0.25);
+    cursor: pointer;
+}
+.balance > button:hover {
+    background-color: rgba(55, 117, 233, 0.25);
+}
+.balance > button:active {
+    background-color: rgba(10, 85, 224, 0.25);
+}
+.eth-icon {
+    background-image: url('../../Images/ethereum-icon.svg');
+    width: 30px;
+    height: 30px;
+    transform: translate(15px, 5px);
+    display: inline-block;
+    background-size:contain;
+}
+.weth-icon {
+    background-image: url('../../Images/weth-icon.svg');
+    width: 30px;
+    height: 30px;
+    transform: translate(16px, 4.5px);
+    display: inline-block;
+    background-size:contain;
+    background-repeat: no-repeat;
+}

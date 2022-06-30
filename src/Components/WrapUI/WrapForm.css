@@ -1,0 +1,45 @@
+form {
+    margin-top: calc(15px + 5%);
+}
+#wrap-btn {
+    border-radius: 25px;
+    border:none;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    color: #bec3cd;
+    font-size: 2em;
+    background-color: #2c559e;
+    width:100%;
+    cursor: pointer;
+}
+#wrap-btn:hover {
+    background-color: #17489c;
+}
+#wrap-btn:active {
+    background-color: #2c559e;
+}
+.btn-disabled {
+    color: #6e7684 !important;
+    background-color: #31333a !important;
+    pointer-events: none;
+}
+
+.down-arrow {
+    background-image: url('../../Images/down-arrow.svg');
+    background-color: #35373f;
+    width: 30px;
+    height: 30px;
+    border-radius:30px;
+    position: absolute;
+    right: 48%;
+    transform: translate(-17px, -17px);
+    border: 2px solid #5f6368;
+    display: inline-block;
+    background-size:contain;
+    cursor: pointer;
+}
+.down-arrow:hover {
+    border: 2px solid #8b8d90;
+    filter: invert(.2)
+}

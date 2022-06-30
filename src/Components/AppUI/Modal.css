@@ -1,0 +1,66 @@
+.modal {
+    background-color: #1e1f25;
+    border: #1e1f25 1px solid;
+    border-radius: 30px;
+    margin-top: 15px;
+    padding-left: 15px;
+    display: inline;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+.modal > p {
+    color: #bec0c3;
+    text-align: left;
+    margin: 5px 0px;
+    padding: 5px 25px 5px  5px;
+    font-size: 1.5em;
+    display: inline-block;
+    text-overflow: ellipsis;
+
+}
+.modal  > a {
+    color: #bec0c3;
+    text-align: left;
+    margin: 5px 0px;
+    padding: 5px 15px 5px  5px;
+    font-size: 1.5em;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+.modal  > a:hover {
+    color: #ffffff;
+}
+.modal > .pending {
+    width: 30px;
+    height: 30px;
+    transform: translate(0px, 12px);
+    float: right;
+    margin-right: 25px;
+    background-image: url("../../Images/loading.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+}
+.modal > .success {
+    width: 30px;
+    height: 30px;
+    transform: translate(0px, 12px);
+    float: right;
+    margin-right: 25px;
+    background-image: url("../../Images/success.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+}
+.modal > .fail {
+    width: 30px;
+    height: 30px;
+    transform: translate(0px, 12px);
+    float: right;
+    margin-right: 25px;
+    background-image: url("../../Images/fail.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+}

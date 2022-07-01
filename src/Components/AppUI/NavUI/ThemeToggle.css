@@ -17,7 +17,7 @@
     overflow: hidden;
     cursor: pointer;
     border: 0 solid #bbb;
-    border-radius: 15px;
+    border-radius: 10px;
     }
     .inner {
     display: block;
@@ -29,7 +29,7 @@
     .inner:after {
     float: left;
     width: 50%;
-    padding: 4px;
+    padding: 2px;
     padding-bottom: 5px;
     color: #fff;
     font-size: 1.25em;

@@ -63,7 +63,7 @@ input:focus { outline: none; appearance: textfield;}
 }
 .coin__dark:hover {
     background-color: #434650;
-    border: #666b7a 1px solid;
+    border: #434650 1px solid;
 }
 .coin__light {
     background-color: #c6c7ca;

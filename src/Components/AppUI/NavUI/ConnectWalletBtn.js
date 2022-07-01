@@ -43,7 +43,7 @@ const ConnectWalletBtn = (props) => {
     else if (props.data?.address === null) 
         return (<button className={'wallet-btn wallet-btn__' + props.theme}>Loading...</button>);    
     else 
-        return (<button className={'wallet-btn wallet-btn__' + props.theme} onClick={connectWallet}>Connect Wallet</button>);
+        return (<button className={'pointer wallet-btn wallet-btn__' + props.theme} onClick={connectWallet}>Connect Wallet</button>);
     
 
 }

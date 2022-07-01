@@ -13,7 +13,7 @@ const ThemeToggle = (props) => {
                 <input type="checkbox" className="checkbox" name='theme' id='theme'  />
                 <label className="label" >
                     <span className="inner" />
-                    <span className="switch" />
+                    <span className={"switch switch__" + props.theme} />
                 </label>
             </div>
         </div>

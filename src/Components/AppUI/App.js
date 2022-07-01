@@ -65,7 +65,7 @@ function App() {
       <div>
         <ConnectWalletBtn data={accountState} onAddressChange={addressChangeHandler} onError={errorHandler} theme = {theme} ></ConnectWalletBtn>
         <NetworkIndicator theme = {theme}></NetworkIndicator>
-        <ThemeToggle onThemeChange = {themeChangeHandler}></ThemeToggle>
+        <ThemeToggle theme = {theme} onThemeChange = {themeChangeHandler}></ThemeToggle>
       </div>
       <WrapUI theme = {theme} accountData={{ ...accountState }} onTransaction={transactionHandler}></WrapUI>
       <Modal theme = {theme} msg={modalState.msg} link={modalState.link} status={modalState.status}></Modal>

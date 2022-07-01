@@ -1,6 +1,5 @@
 .modal {
-    background-color: #1e1f25;
-    border: #1e1f25 1px solid;
+  
     border-radius: 30px;
     margin-top: 15px;
     padding-left: 15px;
@@ -9,8 +8,27 @@
     bottom: 5px;
     left: 5px;
 }
-.modal > p {
+.modal__dark {
+    background-color: #31333a;
+    border: #31333a 1px solid;
+}
+.modal__dark > p, .modal__dark > a {
     color: #bec0c3;
+
+}
+.modal  > a:hover {
+    color: #ffffff;
+}
+.modal__light {
+    background-color: #d6d7d9;
+    border: #d6d7d9 1px solid;
+}
+.modal__light > p, .modal__light > a {
+    color: #676767;
+
+}
+
+.modal > p {
     text-align: left;
     margin: 5px 0px;
     padding: 5px 25px 5px  5px;
@@ -20,7 +38,6 @@
 
 }
 .modal  > a {
-    color: #bec0c3;
     text-align: left;
     margin: 5px 0px;
     padding: 5px 15px 5px  5px;
@@ -28,9 +45,7 @@
     text-overflow: ellipsis;
     display: inline-block;
 }
-.modal  > a:hover {
-    color: #ffffff;
-}
+
 .modal > .pending {
     width: 30px;
     height: 30px;

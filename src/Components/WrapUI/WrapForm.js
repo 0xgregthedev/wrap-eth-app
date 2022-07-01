@@ -46,11 +46,12 @@ function WrapForm(props) {
     return (
         <form onSubmit={submitHandler}>
             <FormInput coin={state.inputCoin} isInput={true} value={state.inputValue} balance={accountBalances.inputBalance}
-                displayBalance={props.accountData.address?.length > 0} onInputChange={inputChangeHandler}></FormInput>
-            <div className='down-arrow' onClick={switchCoins}></div>
+                displayBalance={props.accountData.address?.length > 0} onInputChange={inputChangeHandler} theme = {props.theme}></FormInput>
+            <div className={'down-arrow down-arrow__' + props.theme} onClick={switchCoins}></div>
             <FormInput coin={state.outputCoin} isInput={false} value={state.outputValue} balance={accountBalances.outputBalance}
-                displayBalance={props.accountData.address?.length > 0} onInputChange={inputChangeHandler}></FormInput>
-            <button type='submit' id='wrap-btn' className={btnText === 'Wrap' || btnText === 'Unwrap' ? '' : 'btn-disabled'}>
+                displayBalance={props.accountData.address?.length > 0} onInputChange={inputChangeHandler} theme = {props.theme}></FormInput>
+            <button type='submit'  
+            className={btnText === 'Wrap' || btnText === 'Unwrap' ? 'wrap-btn wrap-btn__' + props.theme : 'btn-disabled btn-disabled__' + props.theme + ' wrap-btn wrap-btn__' + props.theme}>
                 {btnText}</button>
         </form>
     );

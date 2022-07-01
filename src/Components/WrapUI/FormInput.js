@@ -22,14 +22,14 @@ function FormInput(props) {
     }
 
     return (
-        <div className='form-inputs'>
+        <div className={'form-inputs form-inputs__' + props.theme}>
             <input min='.01' onChange={changeHandler} placeholder='0.0' value={props.value ?? ''}
-                className={props.value !== '0.0' ? 'changed-input' : ''}></input>
-            <div className='coin'>
+                className={ parseFloat(props.value) > 0 ? 'changed-input__' + props.theme : 'input__' + props.theme}></input>
+            <div className={'coin coin__' + props.theme}>
                 <div className={props.coin === 'ETH' ? 'eth-icon' : 'weth-icon'}></div>
                 <p>{props.coin === 'ETH' ? 'ETH' : 'wETH'}</p>
             </div>
-            <div className='balance'>
+            <div className={'balance balance__' + props.theme}>
                 <p>{balanceString}</p>{maxBtn()}
             </div>
         </div>

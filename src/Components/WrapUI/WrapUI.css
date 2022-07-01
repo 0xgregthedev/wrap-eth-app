@@ -1,17 +1,32 @@
 .wrap-container {
-    background:  #1e1f25;
     border-radius: 30px;
     max-height: 500px;
     max-width: 500px;
     margin: auto;
     margin-top: 10%;
+    margin-bottom: 5%;
     padding: 25px 40px;
-    box-shadow:  rgb(0 0 0 / 10%) 0px 16px 24px, rgb(0 0 0 / 10%) 0px 24px 32px;
 }
+.wrap-container__dark {
+    background:  #1e1f25;
+    box-shadow: rgb(0 0 0 / 8%) 0px 0px 1px, rgb(0 0 0 / 16%) 0px 4px 8px, rgb(0 0 0 / 16%) 0px 16px 24px, rgb(0 0 0 / 8%) 0px 24px 32px;
 
+}
+.wrap-container__light {
+    background:  #f7f8f8;
+    box-shadow: rgb(0 0 0 / 2%) 0px 0px 1px, rgb(0 0 0 / 8%) 0px 4px 8px, rgb(0 0 0 / 8%) 0px 16px 24px, rgb(0 0 0 / 2%) 0px 24px 32px;
+
+}
 h1 {
-    color: #bec0c3;
     text-align: left;
     margin: 0;
 }
+.heading__dark {
+    color: #bec0c3;
+}
+.heading__light {
+    color: #676767;
+
+}
+
 

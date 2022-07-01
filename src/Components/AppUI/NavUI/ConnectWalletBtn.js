@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import './ConnectWalletBtn.css';
-import ConnectWallet from '../../AccountLibrary/ConnectWallet';
-import EnsLookup from '../../AccountLibrary/ContractABIs/EnsLookup';
+import ConnectWallet from '../../../AccountLibrary/ConnectWallet';
+import EnsLookup from '../../../AccountLibrary/ContractABIs/EnsLookup';
 const ConnectWalletBtn = (props) => {
     const [ens, setEns] = useState('');
 
@@ -31,8 +31,6 @@ const ConnectWalletBtn = (props) => {
         else  props.onAddressChange('');
     }, [props, ens])
 
-
-
     const connectWallet = async () => {
         let result = await ConnectWallet(window.ethereum?.chainId, 'eth_requestAccounts');
         props.onAddressChange(result.address ?? '');
@@ -41,11 +39,11 @@ const ConnectWalletBtn = (props) => {
     };
 
     if (props.data?.address?.length > 0) 
-        return (<button className='wallet-btn' >{ens?.length > 0 ? ens : (props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5))}</button>);
+        return (<button className={'wallet-btn wallet-btn__' + props.theme} >{ens?.length > 0 ? ens : (props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5))}</button>);
     else if (props.data?.address === null) 
-        return (<button className='wallet-btn'>Loading...</button>);    
+        return (<button className={'wallet-btn wallet-btn__' + props.theme}>Loading...</button>);    
     else 
-        return (<button className='wallet-btn' onClick={connectWallet}>Connect Wallet</button>);
+        return (<button className={'wallet-btn wallet-btn__' + props.theme} onClick={connectWallet}>Connect Wallet</button>);
     
 
 }

@@ -2,12 +2,10 @@
     0%{
         transform: translateY(0) rotate(0deg);
         opacity: 1;
-        border-radius: 0;
     }
     100%{
         transform: translateY(-1000px) rotate(720deg);
         opacity: 0;
-        border-radius: 50%;
     }
   }
   
@@ -24,8 +22,13 @@
     left: 0;
     margin: 0;
     z-index: -1;
-    background: #14141a;
     overflow: hidden;
+  }
+  .background__dark {
+    background: #14141a;
+  }
+  .background__light {
+    background: #bbe1f3;
   }
   .background li {
     position: absolute;
@@ -34,10 +37,17 @@
     z-index: -1;
     width: 20px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    border-radius: 7.5%;
+
     animation: animate 52s linear infinite;
   }
-  
+  .background__light > li {
+    background: rgb(27, 27, 27);
+
+  }
+  .background__dark > li {
+    background: rgba(255, 255, 255, 0.2);
+  }
   .background li:nth-child(0) {
     left: 10%;
     width: 54px;

@@ -5,12 +5,10 @@ function WrapUI(props) {
     const transactionHandler = async (txData) => {
         props.onTransaction(txData);
     }
-
-
     return (
-        <div className='wrap-container'>
-            <h1>Wrap</h1>
-            <WrapForm accountData = {props.accountData} onTransaction = {transactionHandler}></WrapForm>
+        <div className={'wrap-container wrap-container__' + props.theme}>
+            <h1 className={'heading__' + props.theme}>Wrap</h1>
+            <WrapForm accountData = {props.accountData} onTransaction = {transactionHandler} theme = {props.theme}></WrapForm>
         </div>
     );
   }

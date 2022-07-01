@@ -1,14 +1,17 @@
 import { useState } from 'react';
-import ConnectWalletBtn from './ConnectWalletBtn';
 import WrapUI from '../WrapUI/WrapUI';
 import Background from './Background';
 import Modal from './Modal';
 import GetBalances from '../../AccountLibrary/GetBalances';
-import NetworkIndicator from './NetworkIndicator';
+import NetworkIndicator from './NavUI/NetworkIndicator';
+import ThemeToggle from './NavUI/ThemeToggle';
+import ConnectWalletBtn from './NavUI/ConnectWalletBtn';
+
 
 function App() {
   const [accountState, setAccountState] = useState({ ethBalance: 0.0, wethBalance: 0.0, address: null });
   const [modalState, setModalState] = useState({ msg: '', link: '', status: '' })
+  const [theme, setTheme] = useState('dark');
 
   const addressChangeHandler = async (newAddress) => {
     if (newAddress.length > 0) {
@@ -53,14 +56,19 @@ function App() {
     }, 5000)
   }
 
+  const themeChangeHandler = (theme) => {
+    setTheme(theme);
+  }
+
   return (
-    <Background>
+    <Background theme = {theme}>
       <div>
-        <ConnectWalletBtn data={accountState} onAddressChange={addressChangeHandler} onError={errorHandler}></ConnectWalletBtn>
-        <NetworkIndicator></NetworkIndicator>
+        <ConnectWalletBtn data={accountState} onAddressChange={addressChangeHandler} onError={errorHandler} theme = {theme} ></ConnectWalletBtn>
+        <NetworkIndicator theme = {theme}></NetworkIndicator>
+        <ThemeToggle onThemeChange = {themeChangeHandler}></ThemeToggle>
       </div>
-      <WrapUI accountData={{ ...accountState }} onTransaction={transactionHandler}></WrapUI>
-      <Modal msg={modalState.msg} link={modalState.link} status={modalState.status}></Modal>
+      <WrapUI theme = {theme} accountData={{ ...accountState }} onTransaction={transactionHandler}></WrapUI>
+      <Modal theme = {theme} msg={modalState.msg} link={modalState.link} status={modalState.status}></Modal>
     </Background>
 
   );

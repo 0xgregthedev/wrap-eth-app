@@ -24,7 +24,7 @@ const ConnectWalletBtn = (props) => {
         }
         const checkConnectionOnLoad = async () => {
             let result = await window.ethereum?.selectedAddress;
-            props.onAddressChange(result ?? '');
+            props.onAddressChange(!!result ?? '');
             setEns(await EnsLookup(result));
             if (!!result.error) props.onError(result.error);
         }

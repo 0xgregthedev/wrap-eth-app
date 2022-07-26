@@ -8,7 +8,7 @@ const ConnectWalletBtn = (props) => {
 
     useEffect(() => {
         const accountsChangedHandler = async (data) => {
-            props.onAddressChange(data[0]);
+            props.onAddressChange(data[0] ?? '');
             setEns(await EnsLookup(data[0]));
         }
         const connectHandler = async (data) => {

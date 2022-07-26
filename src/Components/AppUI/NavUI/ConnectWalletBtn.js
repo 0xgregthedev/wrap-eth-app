@@ -32,7 +32,7 @@ const ConnectWalletBtn = (props) => {
             window.ethereum.on('accountsChanged', accountsChangedHandler);
             window.ethereum.on('chainChanged', chainChangedHandler);
             window.ethereum.on('connect', connectHandler);
-            if (props.data.address?.length < 1)
+            if (props.data.address === null)
                 checkConnectionOnLoad();
         }
         else props.onAddressChange('');

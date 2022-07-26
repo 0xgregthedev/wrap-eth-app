@@ -28,7 +28,7 @@ const ConnectWalletBtn = (props) => {
             window.ethereum.on('chainChanged', chainChangedHandler);
             window.ethereum.on('connect', connectHandler);
         }
-        else  props.onAddressChange('');
+        else props.onAddressChange('');
     }, [props, ens])
 
     const connectWallet = async () => {
@@ -38,13 +38,14 @@ const ConnectWalletBtn = (props) => {
         if (!!result.error) props.onError(result.error);
     };
 
-    if (props.data?.address?.length > 0) 
+    if (props.data?.address?.length > 0)
         return (<button className={'wallet-btn wallet-btn__' + props.theme} >{ens?.length > 0 ? ens : (props.data.address?.substring(0, 5) + '....' + props.data.address?.substring(props.data.address?.length - 5))}</button>);
-    else if (props.data?.address === null) 
-        return (<button className={'wallet-btn wallet-btn__' + props.theme}>Loading...</button>);    
-    else 
+    else if (props.data?.address?.length === 0)
         return (<button className={'pointer wallet-btn wallet-btn__' + props.theme} onClick={connectWallet}>Connect Wallet</button>);
-    
+    else
+        return (<button className={'wallet-btn wallet-btn__' + props.theme}>Loading...</button>);
+
+
 
 }
 export default ConnectWalletBtn;

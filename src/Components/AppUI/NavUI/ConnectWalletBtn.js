@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './ConnectWalletBtn.css';
 import ConnectWallet from '../../../AccountLibrary/ConnectWallet';
-import EnsLookup from '../../../AccountLibrary/ContractABIs/EnsLookup';
+import EnsLookup from '../../../AccountLibrary/EnsLookup';
 const ConnectWalletBtn = (props) => {
     const [ens, setEns] = useState('');
 
